@@ -71,10 +71,10 @@ public class Matricula
     {
         String ret = "";
 
-        ret += "RA: " + this.ra + "/n";
-        ret += "CÓDIGO DA DISCIPLINA: " + this.codDisciplina + "/n";
-        ret += "NOTA: " + this.nota + "/n";
-        ret += "FREQUÊNCIA: " + this.frequencia + "/n";
+        ret += "RA: " + this.ra + "\n";
+        ret += "CÓDIGO DA DISCIPLINA: " + this.codDisciplina + "\n";
+        ret += "NOTA: " + this.nota + "\n";
+        ret += "FREQUÊNCIA: " + this.frequencia + "\n";
 
         return ret;
     }

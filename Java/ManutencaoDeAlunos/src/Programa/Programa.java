@@ -1,20 +1,26 @@
 package Programa;
 
+import Fila.Fila;
 import Matricula.*;
 import ClienteWS.*;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Programa
 {
     public static void main(String[] args)
     {
-        int ra = -1;
-        int codigoDisciplina = -1;
-        float nota = -1;
-        float frequencia = -1;
+        int ra;
+        int codigoDisciplina;
+        float nota;
+        float frequencia;
+
+        Matricula matricula;
+        String respostaWeb = "";
 
         Scanner leitor = new Scanner(System.in);
+        Fila<Matricula> matriculas = new Fila<Matricula>();
         boolean querProsseguir = true;
 
         try
@@ -107,15 +113,30 @@ public class Programa
                         if(resposta.equals("N"))
                             querProsseguir = false;
                         else
-                            throw new Exception("resposta inválida");
+                            if(!resposta.equals("S"))
+                                throw new Exception("resposta inválida");
+
+                        System.out.print("\n");
 
                         break;
                     }
                     catch(Exception ex)
                     {
                         System.err.println("Resposta inválida! Tente novamente!\n");
+                        TimeUnit.SECONDS.sleep(1);
                     }
                 }
+
+                matricula = new Matricula(ra, codigoDisciplina, nota, frequencia);
+                matriculas.guardeUmItem(matricula);
+            }
+
+            //WEBSERVICE AQUI
+
+            while(!matriculas.isVazia())
+            {
+                System.out.println(matriculas.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
+                matriculas.removaUmItem();
             }
         }
         catch(Exception erro)
