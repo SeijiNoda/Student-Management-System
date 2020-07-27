@@ -1,4 +1,4 @@
-# students-management 
+# Students-Management 
 
 > A system developed to handle the students' academic registration
 
