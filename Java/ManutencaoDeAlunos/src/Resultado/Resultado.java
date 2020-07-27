@@ -1,13 +1,13 @@
-package Matricula;
+package Resultado;
 
-public class Matricula
+public class Resultado
 {
     protected int ra;
     protected int codDisciplina;
     protected float nota;
     protected float frequencia;
 
-    public Matricula(int ra, int codDisc, float nota, float freq) throws Exception
+    public Resultado(int ra, int codDisc, float nota, float freq) throws Exception
     {
         this.setRa(ra);
         this.setCodDisciplina(codDisc);
@@ -90,7 +90,7 @@ public class Matricula
         if(obj.getClass() != this.getClass())
             return false;
 
-        Matricula mat = (Matricula)obj;
+        Resultado mat = (Resultado)obj;
 
         if(mat.getRa() != this.getRa() || mat.getCodDisciplina() != this.getCodDisciplina() || mat.getNota() != this.getNota() || mat.getFrequencia() != this.getFrequencia())
             return false;
@@ -115,11 +115,11 @@ public class Matricula
 
     public Object clone()
     {
-        Matricula ret = null;
+        Resultado ret = null;
 
         try
         {
-            ret = new Matricula(this);
+            ret = new Resultado(this);
         }
         catch(Exception eroo)
         {
@@ -128,7 +128,7 @@ public class Matricula
         return ret;
     }
 
-    public Matricula(Matricula modelo) throws Exception
+    public Resultado(Resultado modelo) throws Exception
     {
         if(modelo == null)
             throw new Exception("Modelo inválido");
