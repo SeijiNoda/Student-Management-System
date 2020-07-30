@@ -1,7 +1,7 @@
 package Programa;
 
 import Fila.Fila;
-import Matricula.*;
+import Resultado.*;
 import ClienteWS.*;
 
 import java.util.Scanner;
@@ -11,16 +11,16 @@ public class Programa
 {
     public static void main(String[] args)
     {
-        int ra;
-        int codigoDisciplina;
-        float nota;
-        float frequencia;
+        int ra = -1;
+        int codigoDisciplina = -1;
+        float nota = -1;
+        float frequencia = -1;
 
-        Matricula matricula;
-        String respostaWeb = "";
+        Resultado resultado;
+        String respostaWeb;
 
         Scanner leitor = new Scanner(System.in);
-        Fila<Matricula> matriculas = new Fila<Matricula>();
+        Fila<Resultado> resultados = new Fila<Resultado>();
         boolean querProsseguir = true;
 
         try
@@ -127,16 +127,16 @@ public class Programa
                     }
                 }
 
-                matricula = new Matricula(ra, codigoDisciplina, nota, frequencia);
-                matriculas.guardeUmItem(matricula);
+                resultado = new Resultado(ra, codigoDisciplina, nota, frequencia);
+                resultados.guardeUmItem(resultado);
             }
 
-            //WEBSERVICE AQUI
-
-            while(!matriculas.isVazia())
+            while(!resultados.isVazia())
             {
-                System.out.println(matriculas.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
-                matriculas.removaUmItem();
+                respostaWeb = (String) ClienteWS.getObjeto(String.class, "http://localhost:3000/main/", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
+
+                System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
+                resultados.removaUmItem();
             }
         }
         catch(Exception erro)

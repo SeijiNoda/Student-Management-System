@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb20b088-b346-49e7-ad16-0a9baa3effe4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Resultado/Resultado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Matricula/Matricula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../SQLServer/Tabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../SQLServer/Tabelas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Programa/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programa/Programa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/jackson-all-1.9.0.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -87,18 +85,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -117,21 +104,21 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1595695354489">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="313" y="0" key="#Project_Structure" timestamp="1596115863048">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="313" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1596115863048" />
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1595695354489" />
     <state x="531" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1595691193022">
       <screen x="0" y="0" width="1366" height="728" />
