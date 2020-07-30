@@ -1,4 +1,4 @@
-const sql = require('mssql');
+iconst sql = require('mssql');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -28,7 +28,7 @@ const execSQLQuery = (command, res) => {
     global.conn.request().query(command)
         .then(result => {
             //res.json(result.recordset);
-            res.json('Successful request');
+            res.json('Requisição bem sucedida!');
         })
         .catch(err => res.json(err));
 };
