@@ -29,10 +29,10 @@ const execSQLQuery = (command, res) => {
         .then(result => {
             //res.json(result.recordset);
             if(res.headersSent) return;
-            res.json('Requisição bem sucedida!');
+            res.json({status: 'Requisição bem sucedida!'});
         })
         .catch(err => {
-            res.json({error: `hi, there was an error: ${err}`})
+            res.json({status: `hi, there was an error: ${err}`})
             //res.send(500, {error: err});
         });
 };
