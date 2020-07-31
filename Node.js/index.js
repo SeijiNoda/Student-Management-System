@@ -1,4 +1,4 @@
-iconst sql = require('mssql');
+const sql = require('mssql');
 const express = require('express');
 const bodyParser = require('body-parser');
 
