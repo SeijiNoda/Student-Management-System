@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 //STRING DO SEIJI
-const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19190;User id=BD19190;Password=??';
+const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19190;User id=BD19190;Password=XADkhp4754';
 //STRING DO TONHAO
 // const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19162;User id=BD19162;Password=frasemalucadotonhao';
 //STRING DO NICOLINHO
@@ -28,9 +28,13 @@ const execSQLQuery = (command, res) => {
     global.conn.request().query(command)
         .then(result => {
             //res.json(result.recordset);
+            if(res.headersSent) return;
             res.json('Requisição bem sucedida!');
         })
-        .catch(err => res.json(err));
+        .catch(err => {
+            res.json({error: `hi, there was an error: ${err}`})
+            //res.send(500, {error: err});
+        });
 };
 
 router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
