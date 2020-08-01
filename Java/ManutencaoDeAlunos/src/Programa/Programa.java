@@ -134,7 +134,7 @@ public class Programa
 
             while(!resultados.isVazia())
             {
-                respostaWeb = (String) ClienteWS.getObjeto(String.class, "http://localhost:3000/main", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
+                respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
 
                 System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
                 resultados.removaUmItem();
@@ -143,6 +143,7 @@ public class Programa
         catch(Exception erro)
         {
             System.err.println("Erro ao analisar a matrícula");
+            erro.printStackTrace();
         }
     }
 }

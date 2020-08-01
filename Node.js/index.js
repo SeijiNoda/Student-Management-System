@@ -37,7 +37,7 @@ const execSQLQuery = (command, res) => {
         });
 };
 
-router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
+/*router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
     const ra = parseInt(req.params.ra);
     const disciplina = parseInt(req.params.cod);
     const nota = parseFloat(req.params.nota);
@@ -45,4 +45,15 @@ router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
 
     execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
     execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
+});*/
+router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
+    const ra = parseInt(req.params.ra);
+    const disciplina = parseInt(req.params.cod);
+    const nota = parseFloat(req.params.nota);
+    const frequencia = parseFloat(req.params.freq);
+
+    execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
+    execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
+
+    res.send(new String("SUCESSO"));
 });
