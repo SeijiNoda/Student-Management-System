@@ -37,7 +37,7 @@ const execSQLQuery = (command, res) => {
         });
 };
 
-router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
+router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
     const ra = parseInt(req.params.ra);
     const disciplina = parseInt(req.params.cod);
     const nota = parseFloat(req.params.nota);

@@ -90,7 +90,7 @@ public class Programa
                     return;
                 }
 
-                System.out.print("Digite a frequência de 0,0 a 1,0: ");
+                System.out.print("Digite a frequência de 0.0 a 1.0: ");
                 try
                 {
                     frequencia = leitor.nextFloat();
@@ -135,7 +135,7 @@ public class Programa
 
             while(!resultados.isVazia())
             {
-                respostaWeb = (String) ClienteWS.getObjeto(String.class, "http://localhost:3000/main/", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
+                respostaWeb = (String) ClienteWS.getObjeto(String.class, "http://localhost:3000/main", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
 
                 System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
                 resultados.removaUmItem();
