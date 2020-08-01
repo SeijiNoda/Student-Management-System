@@ -53,7 +53,6 @@ public class Programa
 
             while(querProsseguir)
             {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
                 System.out.print("Digite o RA: ");
                 try
@@ -90,7 +89,7 @@ public class Programa
                     return;
                 }
 
-                System.out.print("Digite a frequência de 0.0 a 1,1: ");
+                System.out.print("Digite a frequência de 0.0 a 1,0: ");
                 try
                 {
                     frequencia = leitor.nextFloat();
