@@ -53,6 +53,8 @@ public class Programa
 
             while(querProsseguir)
             {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
                 System.out.print("Digite o RA: ");
                 try
                 {
