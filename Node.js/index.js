@@ -43,6 +43,6 @@ router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
     const nota = parseFloat(req.params.nota);
     const frequencia = parseFloat(req.params.freq);
 
-    execSQLQuery(`INSERT INTO Resultado_ed(RA,Cod,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
+    execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
     execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
 });
