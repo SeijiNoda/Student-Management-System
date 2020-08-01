@@ -90,7 +90,7 @@ public class Programa
                     return;
                 }
 
-                System.out.print("Digite a frequência de 0.0 a 1.0: ");
+                System.out.print("Digite a frequência de 0.0 a 1,1: ");
                 try
                 {
                     frequencia = leitor.nextFloat();
