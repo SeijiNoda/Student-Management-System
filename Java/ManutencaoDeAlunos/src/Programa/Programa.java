@@ -134,7 +134,7 @@ public class Programa
 
             while(!resultados.isVazia())
             {
-                respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", ra+"", codigoDisciplina+"", nota+"", frequencia+"");
+                respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", resultados.recupereUmItem().getRa()+"", resultados.recupereUmItem().getCodDisciplina()+"", resultados.recupereUmItem().getNota()+"", resultados.recupereUmItem().getFrequencia()+"");
 
                 System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
                 resultados.removaUmItem();
