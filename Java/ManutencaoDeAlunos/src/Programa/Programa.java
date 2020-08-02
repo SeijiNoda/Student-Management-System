@@ -11,10 +11,10 @@ public class Programa
 {
     public static void main(String[] args)
     {
-        int ra = -1;
-        int codigoDisciplina = -1;
-        float nota = -1;
-        float frequencia = -1;
+        int ra;
+        int codigoDisciplina;
+        float nota;
+        float frequencia;
 
         Resultado resultado;
         String respostaWeb;
@@ -134,7 +134,8 @@ public class Programa
 
             while(!resultados.isVazia())
             {
-                respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", resultados.recupereUmItem().getRa()+"", resultados.recupereUmItem().getCodDisciplina()+"", resultados.recupereUmItem().getNota()+"", resultados.recupereUmItem().getFrequencia()+"");
+                resultado = resultados.recupereUmItem();
+                respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", resultado.getRa()+"", resultado.getCodDisciplina()+"", resultado.getNota()+"", resultado.getFrequencia()+"");
 
                 System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
                 resultados.removaUmItem();
@@ -143,7 +144,6 @@ public class Programa
         catch(Exception erro)
         {
             System.err.println("Erro ao analisar a matrícula");
-            erro.printStackTrace();
         }
     }
 }
