@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 //STRING DO SEIJI
-//const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19190;User id=BD19190;Password=XADkhp4754';
+//const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19190;User id=BD19190;Password=???';
 //STRING DO TONHAO
 const connStr = 'Server=regulus.cotuca.unicamp.br;Database=BD19162;User id=BD19162;Password=felicidadeeounicocaminhoquevaleapena';
 //STRING DO NICOLINHO
@@ -27,25 +27,26 @@ console.log("Active server");
 const execSQLQuery = (command, res) => {
     global.conn.request().query(command)
         .then(result => {
-            //res.json(result.recordset);
             if(res.headersSent) return;
-            res.json({status: 'Requisição bem-sucedida!'});
+            //res.json({status: 'Requisição bem-sucedida!'});
+            res.send(200, "Sucesso");
         })
         .catch(err => {
-            res.json({status: `Requisição mal-sucedida: ${err}`})
-            //res.send(500, {error: err});
+            //res.json({status: `Requisição mal-sucedida: ${err}`})
+            if(res.headersSent) return;
+            res.send(500, "Erro na requisicao");
         });
 };
 
-/*router.post('/main/:ra/:cod/:nota/:freq', (req, res) => {
-    const ra = parseInt(req.params.ra);
-    const disciplina = parseInt(req.params.cod);
-    const nota = parseFloat(req.params.nota);
-    const frequencia = parseFloat(req.params.freq);
+// router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
+//     const ra = parseInt(req.params.ra);
+//     const disciplina = parseInt(req.params.cod);
+//     const nota = parseFloat(req.params.nota);
+//     const frequencia = parseFloat(req.params.freq);
 
-    execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
-    execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
-});*/
+//     execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
+//     execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
+// });
 router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
     const ra = parseInt(req.params.ra);
     const disciplina = parseInt(req.params.cod);
@@ -55,5 +56,5 @@ router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
     execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
     execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);
 
-    res.send(new String("SUCESSO"));
+    //res.send(new String("SUCESSO"));
 });
