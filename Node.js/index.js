@@ -29,12 +29,12 @@ const execSQLQuery = (command, res) => {
         .then(result => {
             if(res.headersSent) return;
             //res.json({status: 'Requisição bem-sucedida!'});
-            res.send(200, "Sucesso");
+            res.send(/*200,*/ new String("SUCESSO"));
         })
         .catch(err => {
             //res.json({status: `Requisição mal-sucedida: ${err}`})
             if(res.headersSent) return;
-            res.send(500, "Erro na requisicao");
+            res.send(/*500,*/ new String("FALHA"));
         });
 };
 
