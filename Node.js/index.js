@@ -34,7 +34,7 @@ const execSQLQuery = (command, res) => {
         .catch(err => {
             //res.json({status: `Requisição mal-sucedida: ${err}`})
             if(res.headersSent) return;
-            res.status(500).send(new String("FALHA"));
+            res.send(new String("REQUISIÇÃO MAL-SUCEDIDA"));
         });
 };
 
