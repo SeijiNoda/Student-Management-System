@@ -34,7 +34,8 @@ const execSQLQuery = (command, res) => {
         .catch(err => {
             //res.json({status: `Requisição mal-sucedida: ${err}`})
             if(res.headersSent) return;
-            res.send(new String("REQUISIÇÃO MAL-SUCEDIDA"));
+            //res.send(new String("OPERAÇÃO MAL-SUCEDIDA: "));
+            res.json(new String(`OPERAÇÃO MAL-SUCEDIDA: ${err}`));
         });
 };
 
@@ -52,6 +53,7 @@ router.get('/main/:ra/:cod/:nota/:freq', (req, res) => {
     const disciplina = parseInt(req.params.cod);
     const nota = parseFloat(req.params.nota);
     const frequencia = parseFloat(req.params.freq);
+
 
     execSQLQuery(`INSERT INTO Resultado_ed(RA,CodDisciplina,Nota,Frequencia) VALUES(${ra},${disciplina},${nota},${frequencia})`, res);
     execSQLQuery(`DELETE FROM Matricula_ed WHERE RA = ${ra} AND CODDISCIPLINA = ${disciplina}`, res);

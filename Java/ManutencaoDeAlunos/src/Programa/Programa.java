@@ -89,7 +89,7 @@ public class Programa
                     return;
                 }
 
-                System.out.print("Digite a frequência de 0.0 a 1,0: ");
+                System.out.print("Digite a frequência de 0,0 a 1,0: ");
                 try
                 {
                     frequencia = leitor.nextFloat();
@@ -136,6 +136,12 @@ public class Programa
             {
                 resultado = resultados.recupereUmItem();
                 respostaWeb = (String) ClienteWS.getObjeto(Object.class, "http://localhost:3000/main", resultado.getRa()+"", resultado.getCodDisciplina()+"", resultado.getNota()+"", resultado.getFrequencia()+"");
+                if(respostaWeb.equals("OPERAÇÃO MAL-SUCEDIDA: RequestError: Violation of PRIMARY KEY constraint 'PK__Resultad__E391926C46486B8E'. Cannot insert duplicate key in object 'BD19162.Resultado_ed'."))
+                    respostaWeb = "OPERAÇÃO MAL-SUCEDIDA: Este aluno já foi registrado!";
+                if(respostaWeb.equals("OPERAÇÃO MAL-SUCEDIDA: RequestError: The INSERT statement conflicted with the FOREIGN KEY constraint \"fk_ra03\". The conflict occurred in database \"BD19162\", table \"BD19162.Aluno_ed\", column 'ra'."))
+                    respostaWeb = "OPERAÇÃO MAL-SUCEDIDA: Este aluno não existe!";
+                if(respostaWeb.equals("OPERAÇÃO MAL-SUCEDIDA: RequestError: The INSERT statement conflicted with the FOREIGN KEY constraint \"fk_codDisciplina03\". The conflict occurred in database \"BD19162\", table \"BD19162.Disciplina_ed\", column 'codDisciplina'."))
+                    respostaWeb = "OPERAÇÃO MAL-SUCEDIDA: Esta disciplina não existe!";
 
                 System.out.println(resultados.recupereUmItem() + "STATUS: " + respostaWeb + "\n"); //Insere a resposta do WebService também
                 resultados.removaUmItem();

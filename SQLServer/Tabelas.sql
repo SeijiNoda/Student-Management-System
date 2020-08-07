@@ -40,6 +40,9 @@ select * from Disciplina_ed
 select * from Matricula_ed
 select * from Resultado_ed
 
+delete from Resultado_ed where ra = 19191
+
+
 insert into Aluno_ed values(19162, 'Antônio Hideto Borges Kotsubo')
 insert into Aluno_ed values(19190, 'Matheus Seiji Luna Noda')
 insert into Aluno_ed values(19192, 'Nícolas Maisonnette Duarte')
@@ -50,6 +53,6 @@ insert into Disciplina_ed values (3, 'Desenvolvimento para a Internet III')
 
 insert into Matricula_ed values (19162, 2)
 insert into Matricula_ed values (19190, 3)
-insert into Matricula_ed values (19192, 1)
+insert into Matricula_ed values (19192, 2)
 
 sp_help Aluno_ed
