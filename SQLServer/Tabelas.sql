@@ -43,16 +43,37 @@ select * from Resultado_ed
 delete from Resultado_ed where ra = 19191
 
 
-insert into Aluno_ed values(19162, 'Antônio Hideto Borges Kotsubo')
+insert into Aluno_ed values(19162, 'AntÃ´nio Hideto Borges Kotsubo')
 insert into Aluno_ed values(19190, 'Matheus Seiji Luna Noda')
-insert into Aluno_ed values(19192, 'Nícolas Maisonnette Duarte')
+insert into Aluno_ed values(19192, 'NÃ­colas Maisonnette Duarte')
 
 insert into Disciplina_ed values (1, 'Estrutura de Dados I')
-insert into Disciplina_ed values (2, 'Arquitetura Orientada a Serviços')
+insert into Disciplina_ed values (2, 'Arquitetura Orientada a ServiÃ§os')
 insert into Disciplina_ed values (3, 'Desenvolvimento para a Internet III')
 
 insert into Matricula_ed values (19162, 2)
 insert into Matricula_ed values (19190, 3)
 insert into Matricula_ed values (19192, 2)
 
-sp_help Aluno_ed
+create trigger insert_tg
+on Resultado_ed
+FOR INSERT
+as
+BEGIN 
+	declare 
+	@ra smallint,
+	@disc int,
+	@del int
+
+	select @ra = RA, @disc = codDisciplina from inserted
+
+	set @del = (select count(*) from Matricula_ed where RA = @ra and codDisciplina = @disc);
+	if @del < 1
+	BEGIN 
+		RAISERROR (N'Sem matricula para deletar.', 16, 1);
+	END
+	else
+	BEGIN
+		delete from Matricula_ed where RA = @ra and codDisciplina = @disc
+	END
+END 
