@@ -40,8 +40,8 @@ select * from Disciplina_ed
 select * from Matricula_ed
 select * from Resultado_ed
 
-delete from Resultado_ed where ra = 19191
-insert into Matricula_ed values(19191, 1)
+delete from Resultado_ed where ra = 19170
+insert into Matricula_ed values(19162, 3)
 
 insert into Aluno_ed values(19162, 'Antônio Hideto Borges Kotsubo')
 insert into Aluno_ed values(19190, 'Matheus Seiji Luna Noda')
@@ -67,11 +67,13 @@ BEGIN
 
 	select @ra = RA, @disc = codDisciplina from inserted
 
+	set @del = (select count(*) from Matricula_ed where RA = @ra and codDisciplina = @disc);
+
 	delete from Matricula_ed where RA = @ra and codDisciplina = @disc
 
-	set @del = (select count(*) from Matricula_ed where RA = @ra and codDisciplina = @disc);
 	if @del < 1
 	BEGIN 
+		delete from Resultado_ed where RA = @ra and codDisciplina = @disc
 		RAISERROR (N'Sem matricula para deletar.', 16, 1);
 	END
 END 
