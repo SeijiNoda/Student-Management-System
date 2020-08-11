@@ -41,7 +41,7 @@ select * from Matricula_ed
 select * from Resultado_ed
 
 delete from Resultado_ed where ra = 19170
-insert into Matricula_ed values(19162, 3)
+insert into Matricula_ed values(19191, 1)
 
 insert into Aluno_ed values(19162, 'Antônio Hideto Borges Kotsubo')
 insert into Aluno_ed values(19190, 'Matheus Seiji Luna Noda')
