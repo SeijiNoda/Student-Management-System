@@ -1,6 +1,6 @@
 # Students-Management 
 
-> A system developed to handle the students' academic registration
+> A Java-based system developed to handle the students' academic registration
 
 ## Developers 
 * [Antônio Hideto Borges Kotsubo](https://github.com/antoniokot)
